@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('subject_posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('subject_id');
+            $table->foreignId('subject_id')->constrained();
             $table->string('name', 20);
             $table->string('message', 200);
             $table->timestamps();
