@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->foreignId('category_id')->constrained();
             $table->string('name', 50);
-            $table->integer('string');
+            $table->integer('credit');
         });
     }
 

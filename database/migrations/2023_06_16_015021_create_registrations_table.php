@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('course_categories', function (Blueprint $table) {
-            $table->integer('course_id');
-            $table->integer('subject_id');
-            $table->integer('attribute_id');
+        Schema::create('registrations', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('subject_id')->constrained();
+            $table->boolean('is_definitive');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_categories');
+        Schema::dropIfExists('registrations');
     }
 };
