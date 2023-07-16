@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('.index');
+});
+
+Route::get('/registration', function () {
+    return view('.registration');
+});
+
+Route::get('/provisional', [RegistrationController::class, 'provisional']); 
+Route::post('/provisional_store', [RegistrationController::class, 'provisional_store']);
+Route::get('/provisional_completed', [RegistrationController::class, 'provisional_completed']); 
+
+Route::get('/definitive', [RegistrationController::class, 'definitive']); 
+Route::post('/definitive_store', [RegistrationController::class, 'definitive_store']);
+Route::get('/definitive_completed', [RegistrationController::class, 'definitive_completed']); 
+
+Route::get('/mypage',[UserController::class, 'mypage']);
+Route::get('/logout_check', function(){
+    return view('logoutCheck'); 
 });
 
 Route::get('/dashboard', function () {
@@ -27,5 +48,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/tests', [TestController::class, 'importView']); 
+Route::post('postSubject', [TestController::class, 'postSubjectsData'])->name('postSubject'); 
+Route::post('postCourse', [TestController::class, 'postCourseCategoriesData'])->name('postCourse'); 
 
 require __DIR__.'/auth.php';
