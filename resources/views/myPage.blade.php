@@ -29,24 +29,32 @@
                     ユーザ情報
                 </div>
                 <div class="index_body">
+                    <br>
                     <div class="index_sentence">
                         学籍番号：{{$user->student_id}}
                     </div>
+                    <br>
                     <div class="index_sentence">
                         名前：{{$user->name}}
                     </div>
+                    <br>
                     <div class="index_sentence">
                         学年：{{$user->grade}}年
                     </div>
+                    <br>
                     <div class="index_sentence">
                         入学年度：{{$user->addmission}}
                     </div>
+                    <br>
                     <div class="index_sentence">
                         学科・コース：{{$user->course->name}}
                     </div>
+                    <br>
                     <div class="index_sentence">
                         メールアドレス：{{$user->email}}
                     </div>
+                    <br>
+                    <a href="/my_credits" class="my_page_btn">履修科目確認</a>
                 </div>
             </div>
         </div>

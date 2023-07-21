@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,10 +35,18 @@ Route::get('/definitive', [RegistrationController::class, 'definitive']);
 Route::post('/definitive_store', [RegistrationController::class, 'definitive_store']);
 Route::get('/definitive_completed', [RegistrationController::class, 'definitive_completed']); 
 
-Route::get('/mypage',[UserController::class, 'mypage']);
+Route::get('/my_page',[UserController::class, 'my_page']);
+Route::get('/my_credits',[UserController::class, 'my_credits']);
 Route::get('/logout_check', function(){
     return view('logoutCheck'); 
 });
+
+
+Route::get('/review/{subject}',[ReviewController::class, 'review']);
+Route::post('/review_store',[ReviewController::class, 'review_store']);
+Route::get('/review_completed',[ReviewController::class, 'review_completed']);
+Route::get('/subject',[ReviewController::class, 'subject']);
+Route::get('/subject_review/{subject}',[ReviewController::class, 'subject_review']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

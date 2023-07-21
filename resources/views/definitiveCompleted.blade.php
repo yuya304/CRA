@@ -32,34 +32,6 @@
                     {{$user->course->name}}
                 </div>
                 <div class="result">
-                    @php
-                        $credits = [['id'=>1, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>2, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>3, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>4, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>5, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>6, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>7, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>8, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>9, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>10, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>11, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>12, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>13, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>14, 'count'=>0, 'sum'=>0, 'flag'=>0],
-                                    ['id'=>15, 'count'=>0, 'sum'=>0, 'flag'=>0]];
-                    @endphp
-                    
-                    @foreach($registrations as $registration)
-                        @foreach($course_categories as $course_category)
-                            @if($registration->subject_id == $course_category->subject_id)
-                        @php
-                            $credits[$course_category->attribute_id-1]["sum"] += $registration->subject->credit;
-                            $credits[$course_category->attribute_id-1]["count"] += 1;
-                        @endphp
-                            @endif
-                        @endforeach
-                    @endforeach
                     @if($user->course_id == 1)       <!--土木工学科 社会基盤デザインコース-->
                         <table border=1>
                             <tr>
@@ -195,9 +167,6 @@
                                     $credits[13]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -230,14 +199,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -407,9 +368,6 @@
                                     $credits[13]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -442,14 +400,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -614,9 +564,6 @@
                                     $credits[11]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[10]["flag"]==1 &&
@@ -646,14 +593,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -817,9 +756,6 @@
                                     $credits[11]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[10]["flag"]==1 &&
@@ -849,14 +785,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1020,9 +948,6 @@
                                     $credits[11]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[10]["flag"]==1 &&
@@ -1052,14 +977,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1207,9 +1124,6 @@
                                     $credits[9]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $category_sum>=80)
@@ -1233,14 +1147,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1396,9 +1302,6 @@
                                     $credits[11]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -1425,14 +1328,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1590,9 +1485,6 @@
                                     $credits[11]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -1619,14 +1511,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1779,9 +1663,6 @@
                                     $credits[9]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $category_sum>=80)
@@ -1805,14 +1686,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -1972,9 +1845,6 @@
                                     $credits[13]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -2007,14 +1877,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else
@@ -2147,7 +2009,7 @@
                                 </td>
                                 <td>
                                     必修科目：{{$credits[6]["count"]}}科目{{$credits[6]["sum"]}}単位<br>
-                                    選択科目：{{$credits[7]["count"]}}科目{{$credits[7]["sum"]}}単位
+                                    選��科目：{{$credits[7]["count"]}}科目{{$credits[7]["sum"]}}単位
                                 </td>
                             </tr>
                             <!--条件クリア判定-->
@@ -2176,9 +2038,6 @@
                                     $credits[13]["flag"] = 1;
                                 @endphp
                             @endif
-                            @php
-                                $category_sum = $credits[8]["sum"]+$credits[9]["sum"]+$credits[10]["sum"]+$credits[11]["sum"]+$credits[12]["sum"]+$credits[13]["sum"]+$credits[14]["sum"];
-                            @endphp
                             @if($credits[8]["flag"]==1 &&
                                 $credits[9]["flag"]==1 &&
                                 $credits[11]["flag"]==1 &&
@@ -2211,14 +2070,6 @@
                                                     {{$category_sum}}単位
                                 </td>
                             </tr>
-                            @php
-                                $all_sum = 0;
-                            @endphp
-                            @foreach($credits as $credit)
-                                @php
-                                    $all_sum += $credit["sum"];
-                                @endphp
-                            @endforeach
                             @if($all_sum)
                                 <tr class="result_item_ok">
                             @else

@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function registrations(){
         return $this->hasMany(Resistration::class); 
     }
+    
+    public function review(){
+        return $this->hasMany(Review::class);
+    }
 }

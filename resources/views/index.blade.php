@@ -16,9 +16,9 @@
             <div class="menu">
                 <ul>
                 <li><a href="/index">ページ案内</a></li>
-                <li><a href="/mypage">マイページ</a></li>
+                <li><a href="/my_page">マイページ</a></li>
                 <li><a href="/registration">履修登録</a></li>
-                <li><a href="#">授業レビュー</a></li>
+                <li><a href="/subject">授業レビュー</a></li>
                 <li><a href="#">全体掲示板</a></li>
                 <li><a href="/logout_check">ログアウト</a></li>
                 </ul> 

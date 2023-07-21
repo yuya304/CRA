@@ -41,7 +41,7 @@
                                 <table border=1>
                                     <tr>
                                         <th>　</th>
-                                        <th class = "category">科目名</th>
+                                        <th class = "subject">科目名</th>
                                         <th class = "credit">単位数</th>
                                         <th class = "attribute">選択・必修</th>
                                     </tr>
@@ -49,7 +49,7 @@
                                         @if($course_category->subject->category_id === $category->id)
                                             <tr>
                                                 <td class = check_box><input type="checkbox" name="subjects[]" value="{{$course_category->subject_id}}"></td>
-                                                <td class = "category">{{ $course_category->subject->name }}</td>
+                                                <td class = "subject">{{ $course_category->subject->name }}</td>
                                                 <td class = "credit">{{ $course_category->subject->credit }}</td>
                                                 <td class = "attribute">{{ $course_category->attribute->name }}</td>
                                             </tr>
