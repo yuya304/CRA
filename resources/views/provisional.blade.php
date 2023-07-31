@@ -8,19 +8,17 @@
     </head>
     <body>
         <div class="header">
-            <div class="header_title">
-                日大工学部履修登録補助サイト
-            </div>
+            <img src="/storage/title.png"/>
         </div>
         <div class="content">
             <div class="menu">
                 <ul>
-                <li><a href="/index">ページ案内</a></li>
-                <li><a href="#">マイページ</a></li>
+                <li><a href="/">ページ案内</a></li>
+                <li><a href="/my_page">マイページ</a></li>
                 <li><a href="/registration">履修登録</a></li>
-                <li><a href="#">授業レビュー</a></li>
-                <li><a href="#">全体掲示板</a></li>
-                <li><a href="#">ログアウト</a></li>
+                <li><a href="/subject">授業レビュー</a></li>
+                <li><a href="/post">全体掲示板</a></li>
+                <li><a href="/logout_check">ログアウト</a></li>
                 </ul> 
             </div>
         
@@ -41,7 +39,7 @@
                                 <table border=1>
                                     <tr>
                                         <th>　</th>
-                                        <th class = "category">科目名</th>
+                                        <th class = "subject">科目名</th>
                                         <th class = "credit">単位数</th>
                                         <th class = "attribute">選択・必修</th>
                                     </tr>
@@ -49,7 +47,7 @@
                                         @if($course_category->subject->category_id === $category->id)
                                             <tr>
                                                 <td class = check_box><input type="checkbox" name="subjects[]" value="{{$course_category->subject_id}}"></td>
-                                                <td class = "category">{{ $course_category->subject->name }}</td>
+                                                <td class = "subject">{{ $course_category->subject->name }}</td>
                                                 <td class = "credit">{{ $course_category->subject->credit }}</td>
                                                 <td class = "attribute">{{ $course_category->attribute->name }}</td>
                                             </tr>

@@ -21,4 +21,12 @@ class Subject extends Model
         return $this->belongsTo(Category::class);
     }
     
+    public function review(){
+        return $this->hasMany(Review::class);
+    }
+    
+    public function subject_posts(){
+        return $this->hasMany(Subject_post::class);
+    }
+    
 }

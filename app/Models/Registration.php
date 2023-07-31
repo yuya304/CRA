@@ -13,6 +13,7 @@ class Registration extends Model
         'user_id',
         'subject_id',
         'is_definitive',
+        'is_reviewed',
     ];
     
     public function user(){
