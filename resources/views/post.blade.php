@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>日大工学部履修登録補助</title>
         <!-- Fonts -->
-        <link href="{{secure_asset('/build/assets/css/style.css')}}" rel="stylesheet" >
+        <link href="{{secure_asset('css/style.css')}}" rel="stylesheet" >
     </head>
     <body>
         <div class="header">
