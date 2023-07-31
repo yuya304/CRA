@@ -1,0 +1,424 @@
+body{
+    background-color: #F0F0F0;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    font-size: 28pt;
+}
+
+.header_title{
+    text-align: center;
+    display: block;
+    line-height: 5rem;
+    height: 5rem;
+    width: 80%;
+    border: 1px solid black;
+    background-color: #FFFFFF;
+}
+
+.login_title{
+    text-align: center;
+    display: block;
+    line-height: 5rem;
+    height: 5rem;
+    width: 80%;
+    border: 1px solid black;
+    background-color: #FFFFFF;
+}
+
+.content{
+    display: flex;
+}
+.menu{
+    display: block;
+    float: left;
+    width: 190px;
+    border-right: 1px solid #9F99A3;
+    background-color: #FFFFFF;
+}
+.menu ul{ 
+    margin: 0; 
+    padding: 0;
+    list-style: none;
+    width: 190px;
+}
+.menu li{ 
+    display: inline; 
+    padding: 0; 
+    margin: 0;
+    width: 190px;
+}
+.menu li a{
+    display: block; 
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    background-color: #FFFFFF;
+    padding: 7px 7px;
+    text-decoration: none;
+    color: #333;
+    height: 30pt;
+    width: 90%; 
+    margin: 0px;
+    text-align: center;
+    line-height: 3rem;
+    height: 3rem;
+    font-size: 20px;
+}
+.menu li a:hover{
+    border-top: 1px solid #8593A9;
+    border-left: 1px solid #8593A9;
+    border-right: 1px solid #8593A9;
+    background-color: #9EB7DD;
+}
+
+.common_body{
+    width: 100%;
+    float: right;
+}
+
+.common_title{
+    display: block;
+    background-color: #777777;
+    height: 65px;
+    font-size: 35px;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    line-height: 4rem;
+    height: 4rem;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+.course_name{
+    display: block;
+    background-color: #fff;
+    height: 65px;
+    font-size: 30px;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+    line-height: 4rem;
+    height: 4rem;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+.index_item{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.logout_message{
+    font-size: 35px;
+    color: black;
+    text-align: center;
+    margin: 5%;
+}
+
+.index_sentence{
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.btn_flex{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    justify-content: space-evenly;
+}
+.registration_btn {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 20px 50px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-size: 20px;
+    font-weight: 1200;
+    background: #fff;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    text-decoration: none;
+}
+.registration_btn :hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+.cra_btn_group{
+    display: flex;
+    justify-content: center;
+}
+.cra_btn {
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5%;
+    max-width: 150px;
+    padding: 10px 25px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-size: 15px;
+    font-weight: 1200;
+    background: #fff;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.cra_btn :hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+
+/**************************
+ タブ切り替え
+***************************/
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin:5px 0;
+}
+
+.tab-wrap:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color:#999fad;
+  display: block;
+  order: -1;
+}
+
+
+
+.tab-label {
+  color: #fff;
+  background-color: #bbb;
+  text-align: center;
+  padding: .5em 1em;
+  order: -1;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  flex: 1;
+}
+
+.tab-label:not(:last-of-type) {
+  margin-right: 5px;
+}
+
+.tab-content {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+ background-color:#999fad;/*背景色*/
+}
+
+.tab-switch:checked+.tab-label+.tab-content {
+  height: auto;
+  overflow: auto;
+  padding: 15px 0 0 0;
+  opacity: 1;
+  transition: .5s opacity;
+}
+
+/* ラジオボタン非表示 */
+.tab-switch {
+  display: none;
+}
+
+.category{
+    width: 400px
+}
+
+.credit{
+    text-align: center;
+}
+.attribute{
+    width: 100px;
+    text-align: center;
+}
+
+th{
+    background-color: #fff;
+}
+
+.completed_table{
+    font-size: 20px;
+    border-color: black;
+    table-layout: center;
+}
+.condition{
+    width: 400px;
+}
+
+.yours{
+    width: 400px;
+}
+
+.result_item_ng{
+    color: red;
+}
+.result_item_ok{
+    color: black;
+}
+
+.graduation{
+    font-size: 30px;
+    color: red;
+    margin-left: 20%;
+}
+.completed_message{
+    font-size: 20px;
+    margin-left: 20%;
+}
+
+.review_request{
+    font-size: 20px;
+    color: red;
+    margin-left: 20%;
+}
+
+.review_subject_name{
+    display: block;
+    background-color: #fff;
+    height: 65px;
+    font-size: 30px;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+    line-height: 4rem;
+    height: 4rem;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+.logout_btn{
+    padding: 15px 30px;
+    background: white;
+    color: #000;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.subject{
+    width: 400px;
+}
+
+.credit{
+    width: 75px;
+    text-align: center;
+}
+
+.attribute{
+    width: 150px;
+    text-align: center;
+}
+.definitive{
+    width: 150px;
+    text-align: center;
+}
+.review{
+    width: 100px;
+    text-align: center;
+}
+.delete{
+    width: 75px;
+    text-align: center;
+}
+
+.review_title{
+    font-size: 20px;
+    background-color: white;
+    width: 350px;
+}
+.review_item{
+    font-size: 20px;
+    background-color: white;
+    width: 150px;
+    text-align: center;
+}
+.review_thanks{
+    font-size: 40px;
+    text-align: center;
+}
+.review_subject_attribute{
+    width: 525px;
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+}
+.review_subject_credit{
+    width: 525px;
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+}
+.review_result{
+    font-size: 20px;
+    text-align: center;
+}
+.comment_title{
+    display: block;
+    background-color: #fff;
+    height: 65px;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    line-height: 4rem;
+    height: 4rem;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
+.comment_user{
+    font-size: 15px;
+    font-weight: bold;
+}
+.comment_message{
+    font-size: 15px;
+}
+
+.paginate li{
+    display: inline-block;
+}
+.comment_form{
+    border-top: groove;
+}
+.form_title{
+    font-weight: bold;
+    font-size: 20px;
+}
+.comment_name{
+    margin-left: 2%;
+}
+.comment_add{
+    margin: 2%;
+    width: 400px;
+    height: 200px;
+}
