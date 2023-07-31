@@ -24,7 +24,7 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録（仮登録）
+                    卒業条件確認（本登録）
                 </div>
                 <div class="course_name">
                     {{$user->course->name}}
@@ -1088,7 +1088,7 @@
                                     選択科目：{{$credits[5]["count"]}}科目{{$credits[5]["sum"]}}単位
                                 </td>
                             </tr>
-                            <!--条件クリア判定-->
+                            <!--条件クリア判��-->
                             @if($credits[6]["count"]>=8 && $credits[6]["sum"]>=17 )
                                 @php
                                     $credits[6]["flag"] = 1;
@@ -1868,7 +1868,7 @@
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
                                     　必修科目　 ：{{$credits[9]["count"]}}科目{{$credits[9]["sum"]}}単位<br>
                                     選択必修科目1：{{$credits[11]["count"]}}科目{{$credits[11]["sum"]}}単位<br>
-                                    選択必修科目2：{{$credits[12]["count"]}}科目{{$credits[12]["sum"]}}単位<br>
+                                    選択必修科目2：{{$credits[12]["count"]}}科目{{$credits[12]["sum"]}}単��<br>
                                     選択必修科目3：{{$credits[13]["count"]}}科目{{$credits[13]["sum"]}}単位<br>
                                     　選択科目　 ：{{$credits[14]["count"]}}科目{{$credits[14]["sum"]}}単位<br>
                                     　　合計　　 ：{{$credits[8]["count"]+$credits[9]["count"]+$credits[11]["count"]+$credits[12]["count"]+$credits[13]["count"]+$credits[14]["count"]}}科目
@@ -2101,13 +2101,9 @@
                             <div class="graduation">卒業条件を満たしていません</div>
                         @endif
                     @endif
-                    <br>
-                    <div class="completed_message">
-                        仮登録完了しました<br>
-                        左のメニューから他の機能を選択してください
                     </div>
                     <br>
-                    <a href="/provisional" class="cra_btn">仮登録選択</a>
+                    <a href="/my_credits" class="cra_btn">履修科目確認</a>
                     <br>
                 </div>
             </div>

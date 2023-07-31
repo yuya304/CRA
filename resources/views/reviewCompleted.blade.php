@@ -24,13 +24,16 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録
+                    レビュー完了
                 </div>
-                <div class="btn_flex">
-                    <a href="/provisional" class="registration_btn">仮登録</a>
-                    <a href="/definitive" class="registration_btn">本登録</a>
+                <div class="index_body">
+                    <div class="review_thanks">
+                        レビュー<br>
+                        ありがとうございました。
+                    </div>
+                    <br>
+                    <a href="/my_credits" class="cra_btn" >履修科目確認</a>
                 </div>
-                
             </div>
         </div>
         

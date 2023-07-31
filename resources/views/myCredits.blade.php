@@ -24,12 +24,12 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録（本登録）
+                    履修単位一覧
                 </div>
                 <div class="course_name">
                     {{$user->course->name}}
                 </div>
-                <form method="post" action="/definitive_store">
+                <form method="post" action="/registration_delete">
                     @csrf
                     <div class="tab-wrap">
                         @foreach ($categories as $category)
@@ -38,20 +38,36 @@
                             <div class="tab-content">
                                 <table border=1>
                                     <tr>
-                                        <th>　</th>
                                         <th class = "subject">科目名</th>
                                         <th class = "credit">単位数</th>
                                         <th class = "attribute">選択・必修</th>
+                                        <th class = "definitive">履修登録</th>
+                                        <th class = "review">レビュー</th>
+                                        <th class = "delete">削除</th>
                                     </tr>
                                     @foreach ($registrations as $registration)
                                         @if($registration->subject->category_id === $category->id)
                                             @foreach ($course_categories as $course_category)
                                                 @if($registration->subject_id === $course_category->subject_id)
                                                     <tr>
-                                                        <td class = check_box><input type="checkbox" name="subjects[]" value="{{$registration->subject_id}}"></td>
-                                                        <td class = "subject">{{ $registration->subject->name }}</td>
+                                                        <td class = "subject"><a href="/review/{{$registration->subject_id}}">{{ $registration->subject->name }}</a></td>
                                                         <td class = "credit">{{ $registration->subject->credit }}</td>
                                                         <td class = "attribute">{{ $course_category->attribute->name }}</td>
+                                                        <td class = "definitive">
+                                                            @if($registration->is_definitive == false)
+                                                                履修中
+                                                            @elseif($registration->is_definitive == true)
+                                                                履修済
+                                                            @endif
+                                                        </td>
+                                                        <td class = "review">
+                                                            @if($registration->is_reviewed == false)
+                                                                未
+                                                            @elseif($registration->is_reviewed == true)
+                                                                済
+                                                            @endif
+                                                        </td>
+                                                        <td class = "delete"><button type="submit" name = "subject" value="{{$registration->subject_id}}">削除</button></td>
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -61,8 +77,13 @@
                             </div>
                         @endforeach
                     </div>
-                    <input type="submit" value="登録">
                 </form>
+                <div class=mycredit_massage> 
+                    ※レビューがまだの場合は科目名をクリックしてレビューを実施してください。
+                </div>
+                <br>
+                <a href="/graduation_check" class="cra_btn">卒業条件確認</a>
+                <a href="/my_page" class="cra_btn">マイページ</a>
             </div>
         </div>
         
