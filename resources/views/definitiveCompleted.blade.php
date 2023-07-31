@@ -8,19 +8,17 @@
     </head>
     <body>
         <div class="header">
-            <div class="header_title">
-                日大工学部履修登録補助サイト
-            </div>
+            <img src="/storage/title.png"/>
         </div>
         <div class="content">
             <div class="menu">
                 <ul>
-                <li><a href="/index">ページ案内</a></li>
-                <li><a href="#">マイページ</a></li>
+                <li><a href="/">ページ案内</a></li>
+                <li><a href="/my_page">マイページ</a></li>
                 <li><a href="/registration">履修登録</a></li>
-                <li><a href="#">授業レビュー</a></li>
-                <li><a href="#">全体掲示板</a></li>
-                <li><a href="#">ログアウト</a></li>
+                <li><a href="/subject">授業レビュー</a></li>
+                <li><a href="/post">全体掲示板</a></li>
+                <li><a href="/logout_check">ログアウト</a></li>
                 </ul> 
             </div>
         
@@ -33,11 +31,11 @@
                 </div>
                 <div class="result">
                     @if($user->course_id == 1)       <!--土木工学科 社会基盤デザインコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -186,7 +184,7 @@
                                     選択必修科目1：12単位<br>
                                     選択必修科目2：2科目4単位<br>
                                     選択必修科目3：2科目4単位<br>
-                                        合計     ：80単位
+                                    　　合計　 　：80単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -234,11 +232,11 @@
                         @endif
                     
                     @elseif($user->course_id == 2)   <!--土木工学科 環境デザインコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -387,7 +385,7 @@
                                     選択必修科目1：12単位<br>
                                     選択必修科目2：2科目4単位<br>
                                     選択必修科目3：2科目4単位<br>
-                                        合計     ：80単位
+                                    　　合計　 　：80単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -435,11 +433,11 @@
                         @endif
                     
                     @elseif($user->course_id == 3)   <!--建築学科 建築エンジニアリングコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -581,7 +579,7 @@
                                     　必修科目1  ：23科目47単位<br>
                                     　必修科目2  ：7科目15単位<br>
                                     選択必修科目 ：6科目12単位<br>
-                                        合計     ：84単位
+                                    　　合計　 　：84単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -627,11 +625,11 @@
                         @endif
                         
                     @elseif($user->course_id == 4)   <!--建築学科 建築デザインコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -773,7 +771,7 @@
                                     　必修科目1  ：23科目47単位<br>
                                     　必修科目2  ：7科目14単位<br>
                                     選択必修科目 ：6科目12単位<br>
-                                        合計     ：83単位
+                                    　　合計　 　：83単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -819,11 +817,11 @@
                         @endif
                         
                     @elseif($user->course_id == 5)   <!--建築学科 アーキテクトコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -965,7 +963,7 @@
                                     　必修科目1  ：23科目47単位<br>
                                     　必修科目2  ：8科目11単位<br>
                                     選択必修科目 ：6科目12単位<br>
-                                        合計     ：83単位
+                                    　　合計　 　：83単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1011,11 +1009,11 @@
                         @endif
                         
                     @elseif($user->course_id == 6)   <!--機械工学科-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -1137,7 +1135,7 @@
                                 <td>
                                     専門共通科目 ：3科目10単位<br>
                                     　必修科目   ：17科目42単位<br>
-                                        合計     ：80単位
+                                    　　合計　 　：80単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1178,11 +1176,11 @@
                         @endif
                         
                     @elseif($user->course_id == 7)   <!--電気電子工学科 電子情報通信コース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -1317,7 +1315,7 @@
                                     専門共通科目：3科目10単位<br>
                                     　必修科目  ：13科目26単位<br>
                                     選択必修科目：24単位<br>
-                                        合計    ：70単位
+                                    　　合計　 　：70単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1361,11 +1359,11 @@
                         @endif
                         
                     @elseif($user->course_id == 8)   <!--電気電子工学科 電気エネルギーコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -1500,7 +1498,7 @@
                                     専門共通科目：3科目10単位<br>
                                     　必修科目  ：13科目26単位<br>
                                     選択必修科目：24単位<br>
-                                        合計    ：70単位
+                                    　　合計　 　：70単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1544,11 +1542,11 @@
                         @endif
                         
                     @elseif($user->course_id == 9)   <!--生命応用化学科-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -1676,7 +1674,7 @@
                                 <td>
                                     専門共通科目：3科目10単位<br>
                                     　必修科目  ：16科目32単位<br>
-                                        合計    ：80単位
+                                    　　合計　 　：80単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1718,11 +1716,11 @@
                         @endif
                         
                     @elseif($user->course_id == 10)  <!--情報工学科 情報システムコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -1864,7 +1862,7 @@
                                     選択必修科目1：3単位<br>
                                     選択必修科目2：1単位<br>
                                     選択必修科目3：25単位<br>
-                                        合計     ：74単位
+                                    　　合計　 　：74単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -1911,11 +1909,11 @@
                         @endif
                         
                     @elseif($user->course_id == 11)  <!--情報工学科 情報デザインコース-->
-                        <table border=1>
+                        <table class="completed_table" border=1>
                             <tr>
                                 <th> </th>
-                                <th>条件</th>
-                                <th>あなた</th>
+                                <th class = "condition">条件</th>
+                                <th class = "yours">あなた</th>
                             </tr>
                             <!--条件クリア判定-->
                             @if($credits[0]["count"]>=2 && $credits[0]["sum"]>=4 )
@@ -2009,7 +2007,7 @@
                                 </td>
                                 <td>
                                     必修科目：{{$credits[6]["count"]}}科目{{$credits[6]["sum"]}}単位<br>
-                                    選��科目：{{$credits[7]["count"]}}科目{{$credits[7]["sum"]}}単位
+                                    選択科目：{{$credits[7]["count"]}}科目{{$credits[7]["sum"]}}単位
                                 </td>
                             </tr>
                             <!--条件クリア判定-->
@@ -2057,7 +2055,7 @@
                                     選択必修科目1：3単位<br>
                                     選択必修科目2：1単位<br>
                                     選択必修科目3：25単位<br>
-                                        合計     ：74単位
+                                    　　合計　 　：74単位
                                 </td>
                                 <td>
                                     専門共通科目 ：{{$credits[8]["count"]}}科目{{$credits[8]["sum"]}}単位<br>
@@ -2103,16 +2101,19 @@
                             <div class="graduation">卒業条件を満たしていません</div>
                         @endif
                     @endif
-                    
-                    <div>
+                    <br>
+                    <div class="completed_message">
                         本登録完了しました<br>
                         左のメニューから他の機能を選択してください
                     </div>
+                    <br>
                     <div class="review_request">
                         ※お願い※<br>
                         マイページの履修科目確認から<br>
                         レビューをお願いします！
                     </div>
+                    <br>
+                    <a href="/definitive" class="cra_btn">仮登録選択</a>
                 </div>
             </div>
         </div>

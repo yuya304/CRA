@@ -1,29 +1,44 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <title>日大工学部履修登録補助</title>
+        <!-- Fonts -->
+        <link href="{{secure_asset('/build/assets/css/style.css')}}" rel="stylesheet" >
+    </head>
+    <body>
+        <div class="header">
+            <img src="/storage/title.png"/>
+        </div>
+        <div class="content">
+            <div class="menu">
+                <ul>
+                <li><a href="/">ページ案内</a></li>
+                <li><a href="/my_page">マイページ</a></li>
+                <li><a href="/registration">履修登録</a></li>
+                <li><a href="/subject">授業レビュー</a></li>
+                <li><a href="/post">全体掲示板</a></li>
+                <li><a href="/logout_check">ログアウト</a></li>
+                </ul> 
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+        
+            <div class="common_body">
+                <div class="common_title">
+                    ユーザ情報変更
                 </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+                <div class="index_body">
+                    <x-app-layout>
+                        @include('profile.partials.update-profile-information-form')
+                        <br>
+                        @include('profile.partials.update-password-form')
+                        <br>
+                    </x-app-layout>
+                    
+                    <a href="/my_page" class="cra_btn">戻る</a>
+                    <br>
                 </div>
             </div>
         </div>
-    </div>
-</x-app-layout>
+        
+    </body>
+</html>

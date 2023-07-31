@@ -25,4 +25,8 @@ class Subject extends Model
         return $this->hasMany(Review::class);
     }
     
+    public function subject_posts(){
+        return $this->hasMany(Subject_post::class);
+    }
+    
 }

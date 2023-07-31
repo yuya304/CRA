@@ -8,25 +8,23 @@
     </head>
     <body>
         <div class="header">
-            <div class="header_title">
-                日大工学部履修登録補助サイト
-            </div>
+            <img src="/storage/title.png"/>
         </div>
         <div class="content">
             <div class="menu">
                 <ul>
-                <li><a href="/index">ページ案内</a></li>
-                <li><a href="#">マイページ</a></li>
+                <li><a href="/">ページ案内</a></li>
+                <li><a href="/my_page">マイページ</a></li>
                 <li><a href="/registration">履修登録</a></li>
-                <li><a href="#">授業レビュー</a></li>
-                <li><a href="#">全体掲示板</a></li>
-                <li><a href="#">ログアウト</a></li>
+                <li><a href="/subject">授業レビュー</a></li>
+                <li><a href="/post">全体掲示板</a></li>
+                <li><a href="/logout_check">ログアウト</a></li>
                 </ul> 
             </div>
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録（仮登録）
+                    授業レビューリスト
                 </div>
                 <div class="course_name">
                     {{$user->course->name}}

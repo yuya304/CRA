@@ -8,9 +8,7 @@
     </head>
     <body>
         <div class="header">
-            <div class="width:1000">
-                <img src="/storage/title.png"/>
-            </div>
+            <img src="/storage/title.png"/>
         </div>
         <div class="content">
             <div class="menu">
@@ -26,56 +24,31 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    授業レビュー
+                    掲示板
                 </div>
-                <div class="review_subject_name">{{$course_category->subject->name}}</div>
                 <div class="index_body">
-                    <table border=1>
-                        <tr>
-                            <td class ="review_subject_credit">単位数：{{$course_category->subject->credit}}</td>
-                            <td class ="review_subject_attribute">{{$course_category->attribute->name}}</td>
-                        </tr>
-                    </table>
-                    <table border=1>
-                        <tr>
-                            <th class="review_title">授業難易度<br>
-                            （テスト・レポートなど）</th>
-                            <th class="review_title">授業の分かりやすさ</th>
-                            <th class="review_title">ためになったか</th>
-                        </tr>
-                        <tr>
-                            <td class="review_result">{{$level}}</td>
-                            <td class="review_result">{{$understandability}}</td>
-                            <td class="review_result">{{$benefit}}</td>
-                        </tr>
-                    </table>
-                    <div class="comment_title">コメント</div>
                     <div class="comment_item">
                         @php
                             $num = 0;
                         @endphp
-                        @foreach($subject_posts as $subject_post)
-                            @php
-                                $num++;
-                            @endphp
-                            <div class="comment_user">　{{$num}}：{{$subject_post->name}} {{$subject_post->created_at}}</div>
-                            <div class="comment_message">　　{{$subject_post->message}}</div>
+                        @foreach($posts as $post)
+                            <div class="comment_user">　{{$post->id}}：{{$post->name}} {{$post->created_at}}</div>
+                            <div class="comment_message">　　{{$post->message}}</div>
                         @endforeach
                         <ul class="paginate">
                             <li class="paginate_item">
-                                {{ $subject_posts->links() }}
+                                {{ $posts->links() }}
                             </li>
                         </ul>
                     </div>
                     <div class="comment_form">
                         <div class="form_title">書き込み欄</div>
-                        <form method="post" action="/review_comment_store">
+                        <form method="post" action="/post_store">
                             @csrf
                             <div class="comment_name">
                                 ニックネーム：<input type="text" name="post[name]"/>
                             </div>
                             <textarea class="comment_add" name="post[message]"></textarea><br>
-                            <input type="hidden" name="post[subject_id]" value="{{$course_category->subject_id}}">
                             <input type="submit" value="書き込む"/>
                         </form>
                     </div>

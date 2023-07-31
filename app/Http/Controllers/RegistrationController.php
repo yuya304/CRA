@@ -8,18 +8,19 @@ use App\Models\Registration;
 use App\Models\Course_category;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegistrationController extends Controller
 {
     public function provisional(Category $category){
-        $user = User::first();
+        $user = Auth::user();
         $course_category = Course_category::where('course_id',$user->course_id)->get();
         $registration = Registration::where('user_id',$user->id)->get();
         return view('provisional')->with(['course_categories'=>$course_category, 'categories'=>$category->get(), "registrations"=>$registration, "user"=>$user]);
     }
     
     public function provisional_store(Request $request){
-        $user = User::first();
+        $user = Auth::user();
         $inputs = $request['subjects'];
         if($inputs !== null){
             foreach($inputs as $input){
@@ -47,9 +48,10 @@ class RegistrationController extends Controller
     }
     
     public function provisional_completed(){
-        $user = User::first();
+        $user = Auth::user();
         $registrations = Registration::where('user_id',$user->id)->get();
         $credits = [['count'=>0, 'sum'=>0, 'flag'=>0],
+                    ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
@@ -79,14 +81,14 @@ class RegistrationController extends Controller
     }
     
     public function definitive(Category $category){
-        $user = User::first();
+        $user = Auth::user();
         $course_category = Course_category::where('course_id',$user->course_id)->get();
         $registration = Registration::where('user_id',$user->id)->get();
         return view('definitive')->with(['course_categories'=>$course_category, 'categories'=>$category->get(), "registrations"=>$registration, "user"=>$user]);
     }
     
     public function definitive_store(Request $request, Registration $registration){
-        $user = User::first();
+        $user = Auth::user();
         $inputs = $request['subjects'];
         if($inputs !== null){
             //仮登録を本登録に変更
@@ -100,9 +102,10 @@ class RegistrationController extends Controller
     }
     
     public function definitive_completed(){
-        $user = User::first();
+        $user = Auth::user();
         $registrations = Registration::where('user_id',$user->id)->where('is_definitive', true)->get();
         $credits = [['count'=>0, 'sum'=>0, 'flag'=>0],
+                    ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
                     ['count'=>0, 'sum'=>0, 'flag'=>0],
@@ -127,6 +130,17 @@ class RegistrationController extends Controller
         foreach($credits as $credit){
             $all_sum += $credit["sum"];
         }
-        return view('provisionalCompleted')->with(['user'=>$user, 'credits'=>$credits, 'all_sum'=>$all_sum, 'category_sum'=>$category_sum]);
+        return view('definitiveCompleted')->with(['user'=>$user, 'credits'=>$credits, 'all_sum'=>$all_sum, 'category_sum'=>$category_sum]);
+    }
+    
+    public function registration_delete(Request $request){
+        $user = Auth::user();
+        $delete = $request['subject'];
+        //履修登録を削除
+        $registration = new Registration();
+        $registration->where('user_id',$user->id)->where('subject_id',$delete)->delete();
+        $registration = new Registration();
+        $registration->where('user_id',$user->id);
+        return redirect('/my_credits');
     }
 }

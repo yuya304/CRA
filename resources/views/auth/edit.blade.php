@@ -8,13 +8,15 @@
     </head>
     <body>
         <div class="header">
-            <img src="/storage/title.png"/>
+            <div class="header_title">
+                日大工学部履修登録補助サイト
+            </div>
         </div>
         <div class="content">
             <div class="menu">
                 <ul>
-                <li><a href="/">ページ案内</a></li>
-                <li><a href="/my_page">マイページ</a></li>
+                <li><a href="/index">ページ案内</a></li>
+                <li><a href="/mypage">マイページ</a></li>
                 <li><a href="/registration">履修登録</a></li>
                 <li><a href="/subject">授業レビュー</a></li>
                 <li><a href="/post">全体掲示板</a></li>
@@ -24,13 +26,11 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録
+                    ユーザ情報
                 </div>
-                <div class="btn_flex">
-                    <a href="/provisional" class="registration_btn">仮登録</a>
-                    <a href="/definitive" class="registration_btn">本登録</a>
+                <div class="index_body">
+                    @include('profile.partials.update-profile-information-form')
                 </div>
-                
             </div>
         </div>
         

@@ -24,7 +24,7 @@
         
             <div class="common_body">
                 <div class="common_title">
-                    履修登録（仮登録）
+                    履修登録(削除)
                 </div>
                 <div class="course_name">
                     {{$user->course->name}}
@@ -46,7 +46,7 @@
                                     @foreach ($course_categories as $course_category)
                                         @if($course_category->subject->category_id === $category->id)
                                             <tr>
-                                                <td class = check_box><input type="checkbox" name="subjects[]" value="{{$course_category->subject_id}}"></td>
+                                                <td class = delete_btn><input type="button" name="subject" value="{{$course_category->subject_id}}"></td>
                                                 <td class = "subject">{{ $course_category->subject->name }}</td>
                                                 <td class = "credit">{{ $course_category->subject->credit }}</td>
                                                 <td class = "attribute">{{ $course_category->attribute->name }}</td>
