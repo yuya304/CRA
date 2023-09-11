@@ -9,7 +9,7 @@
     <body>
         <div class="header">
             <div class="width:1000">
-                <img src="/storage/title.png"/>
+                <img src="/title.png"/>
             </div>
         </div>
         <div class="content">
