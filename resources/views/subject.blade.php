@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="header">
-            <img src="/storage/title.png"/>
+            <img src="/title.png"/>
         </div>
         <div class="content">
             <div class="menu">
