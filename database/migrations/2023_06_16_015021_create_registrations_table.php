@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('subject_id')->constrained();
             $table->boolean('is_definitive');
             $table->boolean('is_reviewed');
+            
+            $table->primary(['user_id', 'subject_id']);
         });
     }
 
