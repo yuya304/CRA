@@ -15,7 +15,9 @@ class Registration extends Model
         'is_definitive',
         'is_reviewed',
     ];
-    
+    protected $guarded = [
+        'id',    
+    ];
     public function user(){
         return $this->belongsTo(User::class); 
     }
