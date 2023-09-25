@@ -18,6 +18,10 @@ class Registration extends Model
     protected $guarded = [
         'id',    
     ];
+    
+    protected $primaryKey = null;
+    public $incrementing = false;
+    
     public function user(){
         return $this->belongsTo(User::class); 
     }
